@@ -1,8 +1,33 @@
-<h2>Courses</h2>
-<ul>
-    <li *ngFor="let course of courses">
-        {{ course.name }}
-    </li>
-</ul>
-<p>Qty of courses: {{ courses.length }}</p>
+<section class="section-courses">
+    <div class="group">
+        <h2>Courses</h2>
+        <ul>
+            <li *ngFor="let course of courses">
+                {{ course.name }}
+                <button type="button" 
+                        class="btn btn-danger btn-sm" 
+                        (click)="onDelete(course.id)"
+                >&times;</button>
+            </li>
+        </ul>
+        <p>Qty of courses: {{ courses.length }}
+            <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteAll()">Delete all</button>
+        </p>
+    </div>
 
+    <div class="group">
+        <form>
+            <h2>Add new course</h2>
+            <div class="form-group">
+                <label>New course name: </label>
+                <input type="text" class="form-control" 
+                    placeholder="Enter the course name" [(ngModel)]="newCourse.name"
+                    name="name"
+                >
+            </div>
+            <p class="form-group">
+                <button type="button" class="btn btn-primary" (click)="onAdd()">Add</button>
+            </p>
+        </form>
+    </div>
+</section>

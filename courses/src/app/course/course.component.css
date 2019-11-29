@@ -1,0 +1,31 @@
+.section-courses {
+    margin: 10px;
+    padding: 10px;
+}
+.section-courses .group {
+    margin: 10px 20px;
+    padding: 0 15px;
+    border: 1px solid black;
+}
+.section-courses .group * {
+    padding: 5px;
+}
+.section-courses ul, .section-courses ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+.section-courses .btn {
+    min-width: 50px;
+    height: 25px;
+    font-size: 10px;
+    padding: 0 5px;
+    margin: 0;
+    margin-top: -10px;
+}
+.section-courses .btn.btn-sm {
+    min-width: 20px;
+    height: 15px;
+    font-size: 9px;
+    padding: 0 5px;
+    margin: 0 0 0 20px;
+}

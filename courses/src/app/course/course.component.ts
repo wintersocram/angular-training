@@ -9,21 +9,48 @@ import { throwError } from 'rxjs';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-  private _courses: ICourse[];
+  courses: ICourse[];
+  newCourse: ICourse;
+  newCourseDefault: ICourse = {id: 0, name: null};
+
   constructor(private service:CourseService) {
-    this._courses = service.courses;
+    this.getCourses();
+    this.setDefault();
   }
 
-  get courses() {
-    return this._courses;
+  getCourses() {
+    this.courses = this.service.courses;
   }
+  setDefault() {
+    this.newCourse = Object.assign({}, this.newCourseDefault);
+  }
+  /**
+   * Insert new course using the service
+   */
   set course(course: ICourse) {
     if (!course) throwError;
-    // this.service.courses(courses);
+
+    // get new id
+    this.newCourse.id = this.service.newId;
+    // insert using service
+    this.service.course = this.newCourse;
   }
-  getCourseById(courseId: number) {
-    if (!courseId) throwError;
-    return this.service.getCourseById(courseId);
+
+  onAdd() {
+    this.course = this.newCourse
+    // clear new course
+    this.setDefault();
+  }
+
+  onDelete(id: number) {
+    if (!id) throwError;
+
+    this.service.deleteById(id);
+  }
+
+  onDeleteAll() {
+    this.service.deleteAll("DELETE");
+    this.getCourses();
   }
 
   ngOnInit() {}
