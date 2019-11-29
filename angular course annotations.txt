@@ -286,7 +286,8 @@ Components:
 				declaration: [
 					...
 					FooComponent
-			
+Singleton:
+	Providing only one service to be recuperate n times from several places
 	
 
 
