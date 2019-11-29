@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let author of authors">
+        <p>Name: {{ author.name }}</p>
+    </li>
+</ul>
+<p>total: {{ authors.length }} author<span *ngIf="authors.length > 1">s</span></p>
