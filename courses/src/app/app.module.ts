@@ -7,12 +7,14 @@ import { CourseComponent } from './course/course.component';
 import { EmailService } from './email.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { CourseService } from './course/course.service';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,

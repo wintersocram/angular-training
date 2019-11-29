@@ -1,0 +1,9 @@
+.like-icon:hover {
+    cursor: pointer;
+}
+.like-icon.is-active {
+    color: deeppink;
+}
+.like-icon, .like-counter {
+    margin-left: 5px;
+}
