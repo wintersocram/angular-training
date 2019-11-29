@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StarsComponent } from './stars/stars.component';
+import { FavoriteComponent } from './favorite/favorite.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StarsComponent
+    StarsComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule
