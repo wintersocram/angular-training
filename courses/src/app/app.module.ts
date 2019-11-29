@@ -2,22 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course/course.component';
-import { CoursesService } from './courses/courses.service';
 import { EmailService } from './email.service';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { CourseService } from './course/course.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoursesComponent,
-    CourseComponent
+    CourseComponent,
+    FavoriteComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [
-    CoursesService,
+    CourseService,
     EmailService
   ],
   bootstrap: [AppComponent]
