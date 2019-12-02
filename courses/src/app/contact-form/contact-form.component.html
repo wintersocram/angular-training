@@ -46,9 +46,26 @@
     </div>
     <div class="checkbox">
         <label>
-            <input ngModel name="isSubscribed" type="checkbox">
+            <input ngModel name="isSubscribed" type="checkbox" />
             Subscribe to mailing list
         </label>
+    </div>
+    <div class="form-control">
+        <label for="contactMethod">Contact Method</label>
+        <select 
+            multiple
+            ngModel 
+            name="contactMethod" 
+            id="contactMethod" 
+            class="form-control"
+        >
+            <option 
+                *ngFor="let method of contactMethod" 
+                [ngValue]="method"
+            >
+                {{ method.name }}
+            </option>
+        </select>
     </div>
 
     <!-- only for test -->

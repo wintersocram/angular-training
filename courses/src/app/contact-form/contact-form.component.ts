@@ -10,6 +10,10 @@ import { from } from 'rxjs';
 export class ContactFormComponent implements OnInit {
   // firstName: string;
   comment: string;
+  contactMethod = [
+    { id: 1, name: 'Email' },
+    { id: 2, name: 'Phone' }
+  ];
 
   constructor() { }
 
