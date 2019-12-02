@@ -52,8 +52,7 @@
     </div>
     <div class="form-control">
         <label for="contactMethod">Contact Method</label>
-        <select 
-            multiple
+        <select
             ngModel 
             name="contactMethod" 
             id="contactMethod" 
@@ -61,11 +60,25 @@
         >
             <option 
                 *ngFor="let method of contactMethod" 
-                [ngValue]="method"
+                [value]="method.id"
             >
                 {{ method.name }}
             </option>
         </select>
+    </div>
+    <div class="radio">
+        <label *ngFor="let method of contactMethod">
+            <input ngModel type="radio" name="contactMethod" [value]="method.id">
+            {{ method.name }}
+        </label>
+        <!-- <label>
+            <input ngModel type="radio" name="contactMethod" [(value)]="1">
+            Email
+        </label>
+        <label>
+            <input ngModel type="radio" name="contactMethod" [(value)]="2">
+            Phone
+        </label> -->
     </div>
 
     <!-- only for test -->
