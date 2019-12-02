@@ -13,7 +13,8 @@ export class SignupFormComponent {
       Validators.required,
       Validators.minLength(3),
       UsernameValidators.cannotContainSpace,
-      customMinLength(15)
+      customMinLength(15),
+      UsernameValidators.customMinLength2(10)
     ]),
     password: new FormControl('', Validators.required)
   });

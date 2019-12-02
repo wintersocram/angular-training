@@ -23,6 +23,9 @@
             <div *ngIf="username.errors.aliasMinLength">
                 Error detected on customMinLength of {{ username.errors.aliasMinLength.requiredLength }} on '{{ username.errors.aliasMinLength.value }}'
             </div>
+            <div *ngIf="username.errors.aliasMinUsernameLength">
+                Error detected on UsernameValidators.customMinLength2(10) of {{ username.errors.aliasMinUsernameLength.requiredLength }} on '{{ username.errors.aliasMinUsernameLength.value }}'
+            </div>
         </div>
     </div>
     <div class="form-group">

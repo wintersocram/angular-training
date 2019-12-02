@@ -31,6 +31,17 @@ export class UsernameValidators {
 
         return null;
     }
+    static customMinLength2(minLen: number): ValidatorFn {
+        return (control: AbstractControl): ValidationErrors | null => {
+            const hasMin = (control.value as string).length < minLen;
+            return hasMin ? {
+                aliasMinUsernameLength: {
+                    value: control.value, 
+                    requiredLength: minLen
+                }
+            } : null;
+        };
+    }
 }
 export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
