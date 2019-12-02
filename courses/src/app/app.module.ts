@@ -8,13 +8,15 @@ import { EmailService } from './email.service';
 import { FavoriteComponent } from './favorite/favorite.component';
 import { CourseService } from './course/course.service';
 import { LikeComponent } from './like/like.component';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CourseComponent,
     FavoriteComponent,
-    LikeComponent
+    LikeComponent,
+    ZippyComponent
   ],
   imports: [
     BrowserModule,

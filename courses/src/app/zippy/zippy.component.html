@@ -1,0 +1,13 @@
+<div class="zippy panel panel-default">
+    <div class="zippy-heading panel-heading" (click)="toogleExpanded()">
+        {{ title }}
+        <span 
+            class="chevron glyphicon"
+            [class.glyphicon-chevron-up]="isExpanded"
+            [class.glyphicon-chevron-down]="!isExpanded"
+        ></span>
+    </div>
+    <div class="zippy-body panel-body" [hidden]="!isExpanded">
+        <ng-content select=".zippy-content"></ng-content>
+    </div>
+</div>

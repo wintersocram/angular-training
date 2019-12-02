@@ -1,0 +1,10 @@
+.zippy {
+    margin: 5px 10px;
+}
+.zippy .zippy-heading {
+    cursor: pointer;
+    border-bottom: none;
+}
+.zippy .chevron {
+    float: right;
+}
