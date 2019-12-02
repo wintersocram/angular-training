@@ -40,7 +40,20 @@
             id="comment" 
             cols="30" rows="10"
         ></textarea>
-        <div class="alert alert-danger" *ngIf="comment.touched && comment.invalid">Comment is required</div>
+        <div class="alert alert-danger" *ngIf="comment.touched && comment.invalid">
+            Comment is required
+        </div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit</button>
+    <div class="checkbox">
+        <label>
+            <input ngModel name="isSubscribed" type="checkbox">
+            Subscribe to mailing list
+        </label>
+    </div>
+
+    <!-- only for test -->
+    <p>{{ f.value | json }}</p>
+    <button class="btn btn-primary" [disabled]="!f.valid" type="submit">
+        Submit
+    </button>
 </form>
