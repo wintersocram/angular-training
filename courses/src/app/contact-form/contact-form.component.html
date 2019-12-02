@@ -1,34 +1,46 @@
-<form id="formTest" action="">
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName"
-            id="firstName" ngModel #firstName="ngModel"
-            class="form-control"
-            (change)="log(firstName)"
-            required minlength="4" pattern="Marcos"
-        >
-        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
-            <div *ngIf="firstName.errors.required">
-                First Name is required!
-            </div>
-            <div *ngIf="firstName.errors.minlength">
-                Minimun {{ firstName.errors.minlength.requiredLength}} characters is required!
-            </div>
-            <div *ngIf="firstName.errors.pattern">
-                Pattern doesn't match!
+<form id="formTest" #f="ngForm" (ngSubmit)="submit(f)">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+        <div *ngIf="contact.valid"></div>
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input 
+                required 
+                minlength="4" 
+                pattern="Marcos"
+                ngModel 
+                name="firstName" 
+                #firstName="ngModel"
+                (change)="log(firstName)"
+                id="firstName" 
+                class="form-control"
+                type="text" 
+            >
+            <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+                <div *ngIf="firstName.errors.required">
+                    First Name is required!
+                </div>
+                <div *ngIf="firstName.errors.minlength">
+                    Minimun {{ firstName.errors.minlength.requiredLength}} characters is required!
+                </div>
+                <div *ngIf="firstName.errors.pattern">
+                    Pattern doesn't match!
+                </div>
             </div>
         </div>
     </div>
     <div class="form-group">
         <label for="comment">Comments</label>
-        <textarea name="comment"
-            id="comment" ngModel #comment="ngModel"
-            class="form-control"
-            cols="30" rows="10"
-            (change)="log(comment)"
+        <textarea 
             required
+            ngModel 
+            name="comment"
+            #comment="ngModel"
+            class="form-control"
+            (change)="log(comment)"
+            id="comment" 
+            cols="30" rows="10"
         ></textarea>
         <div class="alert alert-danger" *ngIf="comment.touched && comment.invalid">Comment is required</div>
     </div>
-    <button class="btn btn-primary" (click)="onSubmit()">Submit</button>
+    <button class="btn btn-primary" type="submit">Submit</button>
 </form>

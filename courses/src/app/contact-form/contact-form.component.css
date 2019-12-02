@@ -6,13 +6,14 @@
     border-radius: 2px;
 
 }
-#formTest input {
-    display: inline-block;
+.form-control.ng-invalid.ng-touched {
+    border-color: #a9444287;
+    border-radius: 2px 2px 0 0;
+    border-bottom: none;
 }
-#formTest .alert {
-    display: block;
-    margin-top: -10px;
-    padding: 10px 0 0 10px;
-    border-radius: 0 0 3px 3px;
-    z-index: 1;
+#formTest .alert.alert-danger {
+    padding: 0 10px;
+    border-color: #a9444287;
+    border-radius: 0 0 2px 2px;
+    border-top: none;
 }

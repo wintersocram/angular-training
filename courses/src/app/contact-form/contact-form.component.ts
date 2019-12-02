@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'contact-form',
@@ -11,8 +13,9 @@ export class ContactFormComponent implements OnInit {
 
   constructor() { }
 
-  onSubmit() {
-    // console.log(`[onSubmit()]\n\tfirstName: ${ this.firstName }\n\tcomment: ${ this.comment }`);
+  submit(form: NgForm) {
+    console.log(`[submit()]\n\tform: %o`, form);
+    // form.reset();
   }
 
   log(x) {
