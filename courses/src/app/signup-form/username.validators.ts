@@ -42,6 +42,51 @@ export class UsernameValidators {
             } : null;
         };
     }
+    // asynchronousShouldBeUnique : step 1
+    /*
+    static asynchronousShouldBeUnique(control: AbstractControl): ValidationErrors | null {
+        if(control.value === 'Marcos') 
+            return { aliasASBU: true };
+        return null;
+    }
+    */
+
+    // asynchronousShouldBeUnique : step 2
+    /*
+    static asynchronousShouldBeUnique(control: AbstractControl): ValidationErrors | null {
+        setTimeout(() => {
+            console.log('timeout can be considered an asynchronous function');
+        }, 2000);
+        if(control.value === 'Marcos') 
+            return { aliasASBU: true };
+        return null;
+    }
+    */
+
+    // asynchronousShouldBeUnique : step 3
+    /*
+    static asynchronousShouldBeUnique(control: AbstractControl): ValidationErrors | null {
+        setTimeout(() => {
+            if(control.value === 'Marcos') 
+                return { aliasASBU: true };
+            return null;
+        }, 2000);
+
+        return null;
+    }
+    */
+
+    // asynchronousShouldBeUnique : step 4
+    static asynchronousShouldBeUnique(control: AbstractControl): Promise<ValidationErrors | null> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(control.value === 'Marcos') 
+                    resolve({ aliasASBU: true });
+                else
+                    resolve(null);
+            }, 2000);
+        });
+    }
 }
 export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
     return (control: AbstractControl): {[key: string]: any} | null => {
