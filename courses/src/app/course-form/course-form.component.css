@@ -1,0 +1,19 @@
+.course-form {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px solid gray;
+    border-radius: 3px;
+
+}
+.form-control.ng-invalid.ng-touched {
+    border-color: #a9444287;
+    border-radius: 3px 3px 0 0;
+    border-bottom: none;
+}
+.course-form .alert.alert-danger {
+    padding: 0 10px;
+    border-color: #a9444287;
+    border-radius: 0 0 3px 3px;
+    border-top: none;
+}
