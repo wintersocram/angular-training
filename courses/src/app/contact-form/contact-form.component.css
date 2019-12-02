@@ -6,7 +6,7 @@
     border-radius: 2px;
 
 }
-#formTest * {
+#formTest input {
     display: inline-block;
 }
 #formTest .alert {

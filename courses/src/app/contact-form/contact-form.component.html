@@ -1,17 +1,28 @@
 <form id="formTest" action="">
     <div class="form-group">
         <label for="firstName">First Name</label>
-        <input id="firstName" ngModel #firstName="ngModel" name="firstName"
+        <input type="text" name="firstName"
+            id="firstName" ngModel #firstName="ngModel"
             class="form-control"
-            type="text"
             (change)="log(firstName)"
-            required
+            required minlength="4" pattern="Marcos"
         >
-        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">First Name is required</div>
+        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid">
+            <div *ngIf="firstName.errors.required">
+                First Name is required!
+            </div>
+            <div *ngIf="firstName.errors.minlength">
+                Minimun {{ firstName.errors.minlength.requiredLength}} characters is required!
+            </div>
+            <div *ngIf="firstName.errors.pattern">
+                Pattern doesn't match!
+            </div>
+        </div>
     </div>
     <div class="form-group">
         <label for="comment">Comments</label>
-        <textarea id="comment" ngModel #comment="ngModel" name="comment"
+        <textarea name="comment"
+            id="comment" ngModel #comment="ngModel"
             class="form-control"
             cols="30" rows="10"
             (change)="log(comment)"
