@@ -1,0 +1,124 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+    <div class="form-group">
+        <label for="oldPwd">Old Password</label>
+        <input 
+            formControlName="oldPwd"
+            id="oldPwd" 
+            class="form-control" 
+            type="password"
+        >
+        <div *ngIf="oldPwd.pending">
+            checking for old Password ...
+        </div>
+        <div *ngIf="oldPwd.touched && oldPwd.invalid" class="alert alert-danger">
+            <div *ngIf="oldPwd.errors.required">
+                Old Pasword is required
+            </div>
+            <div *ngIf="oldPwd.errors.checkOldPwd">
+                Old Password does not match
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="newPwd">New Password</label>
+        <input 
+            formControlName="newPwd" 
+            id="newPwd" 
+            class="form-control" 
+            type="password" 
+        >
+        <div *ngIf="newPwd.touched && newPwd.invalid" class="alert alert-danger">
+            <div *ngIf="newPwd.errors.required">
+                New Pasword is required
+            </div>
+            <div *ngIf="newPwd.errors.minlength">
+                The minimun size of the new password is {{ newPwd.errors.minlength.requiredLength }} characters.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="confirmNewPwd">Confirm New Password</label>
+        <input 
+            formControlName="confirmNewPwd" 
+            id="confirmNewPwd" 
+            class="form-control" 
+            type="password"
+        >
+        <div *ngIf="confirmNewPwd.touched && confirmNewPwd.invalid" class="alert alert-danger">
+            <div *ngIf="confirmNewPwd.errors.required">
+                Confirmation of the new password is required
+            </div>
+        </div>
+        <div *ngIf="confirmNewPwd.touched && form.invalid && form.errors.NewPwdDoesntMatch" class="alert alert-danger">
+            The confirmation does not match the New Password.
+        </div>
+    </div>
+   
+    <button class="btn btn-primary" [disabled]="form.invalid || oldPwd.pending">Submit</button> 
+</form>
+<!--
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <label for="oldPwd">Old Password</label>
+        <input 
+            required 
+            ngModel 
+            #oldPwd="ngModel" 
+            name="oldPwd" 
+            id="oldPwd" 
+            class="form-control" 
+            type="password"
+        >
+        <div *ngIf="oldPwd.touched && oldPwd.invalid" class="alert alert-danger">
+            <div *ngIf="oldPwd.errors.required">
+                Old Pasword is required
+            </div>
+            <div *ngIf="oldPwd.errors.checkOldPwd">
+                Old Password does not match
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="newPwd">New Password</label>
+        <input 
+            required 
+            minlength="5" 
+            ngModel 
+            #newPwd="ngModel" 
+            name="newPwd" 
+            id="newPwd" 
+            class="form-control" 
+            type="password" 
+        >
+        <div *ngIf="newPwd.touched && newPwd.invalid" class="alert alert-danger">
+            <div *ngIf="newPwd.errors.required">
+                New Pasword is required
+            </div>
+            <div *ngIf="newPwd.errors.minlength">
+                The minimun size of the new password is {{ newPwd.errors.minlength.requiredLength }} characters.
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="confirmNewPwd">Confirm New Password</label>
+        <input 
+            required 
+            ngModel 
+            #confirmNewPwd="ngModel" 
+            name="confirmNewPwd" 
+            id="confirmNewPwd" 
+            class="form-control" 
+            type="text"
+        >
+        <div *ngIf="confirmNewPwd.touched && confirmNewPwd.invalid" class="alert alert-danger">
+            <div *ngIf="confirmNewPwd.errors.required">
+                Confirmation of the new password is required
+            </div>
+            <div *ngIf="confirmNewPwd.errors.matchNewPwd">
+                The confirmation does not match the New Password.
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
+-->
