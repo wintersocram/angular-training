@@ -1,3 +1,4 @@
+<!--
 <form>
     <input
         #topic
@@ -14,3 +15,17 @@
         </li>
     </ul>
 </form>
+-->
+<form [formGroup]="form">
+    <input formControlName="name" />
+    <div formGroupName="contact">
+        <input formControlName="email">
+        <input formControlName="phone">
+    </div>
+    <ul>
+        <li *ngFor="let topic of topics.controls">
+            {{ form.topic.value }}
+        </li>
+    </ul>
+</form>
+    
