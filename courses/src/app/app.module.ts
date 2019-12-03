@@ -17,6 +17,7 @@ import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PwdChangeComponent } from './pwd-change/pwd-change.component';
 import { PostsComponent } from './posts/posts.component';
+import { PostService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PostsComponent } from './posts/posts.component';
   ],
   providers: [
     CourseService,
-    EmailService
+    EmailService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })

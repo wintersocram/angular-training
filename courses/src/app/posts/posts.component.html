@@ -3,12 +3,14 @@
     #title 
     type="text" class="form-control"
 >
+
 <ul class="list-group">
     <li 
         *ngFor="let post of posts"
         class="list-group-item"
     >
-        <p>ID: {{ post.id }}</p>
-        <p>TITLE: {{ post.title }}</p>
+        <button (click)="updatePost(post)" class="btn btn-default btn-sm">UPDATE</button>
+        <button (click)="deletePost(post)" class="btn btn-danger btn-sm">DELETE</button>
+        {{ post.id }} | {{ post.title }}
     </li>
 </ul>
