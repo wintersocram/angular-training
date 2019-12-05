@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CourseComponent } from './course/course.component';
@@ -18,6 +18,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { PwdChangeComponent } from './pwd-change/pwd-change.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
+import { AppErrorHandler } from './common/app-error-handler';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,9 @@ import { PostService } from './services/post.service';
   providers: [
     CourseService,
     EmailService,
-    PostService
+    PostService,
+    // AppErrorHandler,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
